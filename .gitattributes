@@ -1,0 +1,14 @@
+# GitHub Linguist language overrides
+*.svg linguist-detectable=false
+*.svg linguist-generated=true
+icons/* linguist-detectable=false
+icons/* linguist-generated=true
+
+# Mark TypeScript and TSX scripts as primary code
+scripts/*.ts linguist-detectable=true
+scripts/*.tsx linguist-detectable=true
+*.ts linguist-detectable=true
+*.tsx linguist-detectable=true
+
+# Treat documentation and instructions as doc files
+*.md linguist-documentation=true

@@ -1,0 +1,347 @@
+<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Filtro de Resplandor Neón Intenso -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Filtro Suave para Onda Expansiva de Esquina -->
+    <filter id="cornerGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="12" result="softBlur"/>
+      <feMerge>
+        <feMergeNode in="softBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Gradiente del Cubo 2048 Neón -->
+    <linearGradient id="cubeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#FAFF00"/>
+      <stop offset="85%" stop-color="#E2FF04"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+
+    <!-- Gradiente de Fondo Neón Oscuro para la Arena -->
+    <radialGradient id="arenaBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#141405"/>
+      <stop offset="80%" stop-color="#090902"/>
+      <stop offset="100%" stop-color="#050501"/>
+    </radialGradient>
+
+    <!-- Destello Estelar Neón -->
+    <g id="sparkleStar">
+      <path d="M0 -14 Q0 0 14 0 Q0 0 0 14 Q0 0 -14 0 Q0 0 0 -14 Z" fill="#FAFF00"/>
+    </g>
+
+    <!-- Margarita Flotante -->
+    <g id="daisy">
+      <g fill="#FFFFFF" stroke="#0D0D00" stroke-width="1.3">
+        <ellipse cx="0" cy="-10" rx="3.5" ry="6.5"/>
+        <ellipse cx="0" cy="10" rx="3.5" ry="6.5"/>
+        <ellipse cx="-10" cy="0" rx="6.5" ry="3.5"/>
+        <ellipse cx="10" cy="0" rx="6.5" ry="3.5"/>
+        <ellipse cx="-7" cy="-7" rx="3.5" ry="6.5" transform="rotate(-45 -7 -7)"/>
+        <ellipse cx="7" cy="7" rx="3.5" ry="6.5" transform="rotate(-45 7 7)"/>
+        <ellipse cx="7" cy="-7" rx="3.5" ry="6.5" transform="rotate(45 7 -7)"/>
+        <ellipse cx="-7" cy="7" rx="3.5" ry="6.5" transform="rotate(45 -7 7)"/>
+      </g>
+      <circle cx="0" cy="0" r="6" fill="#FAFF00" stroke="#0D0D00" stroke-width="1.5"/>
+      <circle cx="-1.8" cy="-1.2" r="0.9" fill="#0D0D00"/>
+      <circle cx="1.8" cy="-1.2" r="0.9" fill="#0D0D00"/>
+      <path d="M-1.8 1.8 Q0 3.2 1.8 1.8" stroke="#0D0D00" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- ============================================================== -->
+  <!-- ARENA DE JUEGO TERMINAL / PANTALLA DVD                         -->
+  <!-- ============================================================== -->
+  <rect x="0" y="0" width="680" height="400" rx="16" fill="url(#arenaBg)" stroke="#1A1A06" stroke-width="2"/>
+
+  <!-- Líneas sutiles de cuadrícula retro de la arena -->
+  <g stroke="#FAFF00" stroke-width="0.8" opacity="0.06">
+    <line x1="20" y1="125" x2="660" y2="125"/>
+    <line x1="20" y1="205" x2="660" y2="205"/>
+    <line x1="20" y1="285" x2="660" y2="285"/>
+    <line x1="180" y1="45" x2="180" y2="365"/>
+    <line x1="340" y1="45" x2="340" y2="365"/>
+    <line x1="500" y1="45" x2="500" y2="365"/>
+  </g>
+
+  <!-- Margaritas ambientales flotando suavemente en el fondo -->
+  <g opacity="0.2">
+    <g transform="translate(90, 110) scale(0.95)">
+      <animateTransform attributeName="transform" type="translate" values="90,110; 96,125; 90,110" dur="5s" repeatCount="indefinite"/>
+      <use href="#daisy"/>
+    </g>
+    <g transform="translate(590, 120) scale(1.1)">
+      <animateTransform attributeName="transform" type="translate" values="590,120; 580,105; 590,120" dur="6s" repeatCount="indefinite"/>
+      <use href="#daisy"/>
+    </g>
+    <g transform="translate(130, 310) scale(0.85)">
+      <animateTransform attributeName="transform" type="translate" values="130,310; 140,295; 130,310" dur="4.5s" repeatCount="indefinite"/>
+      <use href="#daisy"/>
+    </g>
+    <g transform="translate(560, 290) scale(1.05)">
+      <animateTransform attributeName="transform" type="translate" values="560,290; 548,305; 560,290" dur="5.5s" repeatCount="indefinite"/>
+      <use href="#daisy"/>
+    </g>
+    <g transform="translate(340, 205) scale(0.75)">
+      <animateTransform attributeName="transform" type="rotate" values="0 340 205; 360 340 205" dur="20s" repeatCount="indefinite"/>
+      <use href="#daisy"/>
+    </g>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MARCO DE PAREDES CON PULSO NEÓN SUAVE AL REBOTAR               -->
+  <!-- ============================================================== -->
+  <rect x="20" y="45" width="640" height="320" rx="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0.4">
+    <animate attributeName="opacity" values="0.3; 0.7; 0.3; 0.6; 0.3" dur="2.4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Barra Superior del Terminal (Limpia, sin texto) -->
+  <rect x="0" y="0" width="680" height="42" rx="16" fill="#141405"/>
+  <rect x="0" y="24" width="680" height="18" fill="#141405"/>
+  <!-- Botones de la ventana estilo Mac -->
+  <circle cx="24" cy="21" r="5.5" fill="#FF5F56"/>
+  <circle cx="44" cy="21" r="5.5" fill="#FAFF00"/>
+  <circle cx="64" cy="21" r="5.5" fill="#27C93F"/>
+
+  <!-- Destellos sutiles de impacto en paredes (anillo luminoso elegante, sin explosiones) -->
+  <!-- Pared Inferior (300, 365) -->
+  <circle cx="300" cy="365" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.071; 0.09; 0.925; 0.932; 0.95" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.071; 0.09; 0.925; 0.932; 0.95" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Superior (540, 45) -->
+  <circle cx="540" cy="45" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.142; 0.16; 0.855; 0.862; 0.88" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.142; 0.16; 0.855; 0.862; 0.88" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Derecha (660, 165) -->
+  <circle cx="660" cy="165" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.165; 0.185; 0.831; 0.838; 0.86" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.165; 0.185; 0.831; 0.838; 0.86" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Inferior (460, 365) -->
+  <circle cx="460" cy="365" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.213; 0.235; 0.783; 0.790; 0.81" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.213; 0.235; 0.783; 0.790; 0.81" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Superior (220, 45) -->
+  <circle cx="220" cy="45" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.284; 0.305; 0.712; 0.719; 0.74" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.284; 0.305; 0.712; 0.719; 0.74" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Izquierda (20, 245) -->
+  <circle cx="20" cy="245" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.331; 0.352; 0.664; 0.671; 0.69" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.331; 0.352; 0.664; 0.671; 0.69" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Inferior (140, 365) -->
+  <circle cx="140" cy="365" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.355; 0.375; 0.641; 0.648; 0.67" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.355; 0.375; 0.641; 0.648; 0.67" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Pared Superior (380, 45) -->
+  <circle cx="380" cy="45" r="12" fill="none" stroke="#FAFF00" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0; 0.9; 0; 0; 0.9; 0" keyTimes="0; 0.426; 0.448; 0.569; 0.576; 0.60" dur="28s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4; 22; 4; 4; 22; 4" keyTimes="0; 0.426; 0.448; 0.569; 0.576; 0.60" dur="28s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ============================================================== -->
+  <!-- ANIMACIÓN ELEGANTE EN ESQUINA INFERIOR DERECHA (t=21, kt=0.50) -->
+  <!-- Shockwave neón pulcro y margaritas flotantes sin explosiones   -->
+  <!-- ============================================================== -->
+  <g id="cornerHitBR">
+    <!-- Ondas concéntricas neón que se expanden desde la esquina -->
+    <circle cx="660" cy="365" r="8" fill="none" stroke="#FAFF00" stroke-width="5" opacity="0" filter="url(#cornerGlow)">
+      <animate attributeName="r" values="8; 8; 320; 8" keyTimes="0; 0.495; 0.55; 0.58" dur="28s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0.9; 0" keyTimes="0; 0.495; 0.51; 0.57" dur="28s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="6; 5; 1; 0" keyTimes="0; 0.495; 0.51; 0.57" dur="28s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="660" cy="365" r="8" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0">
+      <animate attributeName="r" values="4; 4; 240; 4" keyTimes="0; 0.498; 0.545; 0.57" dur="28s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0.8; 0" keyTimes="0; 0.498; 0.515; 0.56" dur="28s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Margaritas y estrellas flotando suavemente desde la esquina -->
+    <g transform="translate(620, 325)">
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,0; -140,-120; -140,-120"
+          keyTimes="0; 0.498; 0.56; 1" dur="28s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0; 0; 1; 0" keyTimes="0; 0.498; 0.525; 0.57" dur="28s" repeatCount="indefinite"/>
+        <use href="#daisy" transform="scale(1.2)"/>
+      </g>
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,0; -210,-50; -210,-50"
+          keyTimes="0; 0.498; 0.56; 1" dur="28s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0; 0; 1; 0" keyTimes="0; 0.498; 0.525; 0.57" dur="28s" repeatCount="indefinite"/>
+        <use href="#daisy" transform="scale(1)"/>
+      </g>
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,0; -70,-190; -70,-190"
+          keyTimes="0; 0.498; 0.56; 1" dur="28s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0; 0; 1; 0" keyTimes="0; 0.498; 0.525; 0.57" dur="28s" repeatCount="indefinite"/>
+        <use href="#sparkleStar" transform="scale(1.3)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- ANIMACIÓN ELEGANTE EN ESQUINA SUPERIOR IZQUIERDA (t=0 / t=42)  -->
+  <!-- ============================================================== -->
+  <g id="cornerHitTL">
+    <circle cx="20" cy="45" r="8" fill="none" stroke="#FAFF00" stroke-width="5" opacity="0" filter="url(#cornerGlow)">
+      <animate attributeName="r" values="320; 8; 8; 320" keyTimes="0; 0.045; 0.955; 1" dur="28s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9; 0; 0; 0.9" keyTimes="0; 0.05; 0.95; 1" dur="28s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="1; 0; 0; 5" keyTimes="0; 0.05; 0.95; 1" dur="28s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- EL CUBO DE 2048: MOVIMIENTO DVD ESTILO SCREENSAVER             -->
+  <!-- Traslación perfecta a 45 grados por 19 hitpoints en 42 unidades-->
+  <!-- Sólido, firme y sin deformaciones excesivas (no squishy)       -->
+  <!-- ============================================================== -->
+  <g id="dvdCubeMaster">
+    <!-- Animación de Movimiento Diagonales DVD (Translación continua infinita) -->
+    <animateTransform attributeName="transform" type="translate"
+      dur="28s" repeatCount="indefinite" calcMode="linear"
+      values="60,85; 300,325; 540,85; 620,165; 460,325; 220,85; 60,245; 140,325; 380,85; 620,325; 380,85; 140,325; 60,245; 220,85; 460,325; 620,165; 540,85; 300,325; 60,85"
+      keyTimes="0; 0.0714; 0.1429; 0.1667; 0.2143; 0.2857; 0.3333; 0.3571; 0.4286; 0.5000; 0.5714; 0.6429; 0.6667; 0.7143; 0.7857; 0.8333; 0.8571; 0.9286; 1"/>
+
+    <!-- Rebote sólido y sutil (micro-impacto táctil del 3%, firme y sólido) -->
+    <g id="cubeSolidRebound">
+      <animateTransform attributeName="transform" type="scale"
+        dur="28s" repeatCount="indefinite"
+        values="1,1; 1,1; 1.03,0.97; 1,1; 1.03,0.97; 1,1; 0.97,1.03; 1,1; 1.03,0.97; 1,1; 1.03,0.97; 1,1; 0.97,1.03; 1,1; 1.03,0.97; 1,1; 1.03,0.97; 1,1; 1.04,1.04; 1,1; 1.03,0.97; 1,1; 1.03,0.97; 1,1; 0.97,1.03; 1,1; 1.03,0.97; 1,1; 1.03,0.97; 1,1; 0.97,1.03; 1,1; 1.03,0.97; 1,1; 1.03,0.97; 1,1; 1,1"
+        keyTimes="0; 0.06; 0.0714; 0.085; 0.1429; 0.155; 0.1667; 0.18; 0.2143; 0.23; 0.2857; 0.30; 0.3333; 0.345; 0.3571; 0.37; 0.4286; 0.44; 0.5000; 0.525; 0.5714; 0.585; 0.6429; 0.655; 0.6667; 0.68; 0.7143; 0.73; 0.7857; 0.80; 0.8333; 0.845; 0.8571; 0.87; 0.9286; 0.94; 1"/>
+
+      <!-- Cuerpo del Cubo Neón (Sólido, bordes nítidos) -->
+      <rect x="-40" y="-40" width="80" height="80" rx="16"
+        fill="url(#cubeGrad)" stroke="#0D0D00" stroke-width="4" filter="url(#neonGlow)"/>
+
+      <!-- Bisel sutil interior estilo 2048 -->
+      <path d="M-36 28 L36 28 C36 32 32 36 28 36 L-28 36 C-32 36 -36 32 -36 28 Z" fill="#D4E600" opacity="0.6"/>
+
+      <!-- ========================================================== -->
+      <!-- CARITAS REUTILIZADAS DE LAS ETAPAS DEL JUEGO (SIN TEXTOS)  -->
+      <!-- ========================================================== -->
+
+      <!-- CARITA 1: BOXEADOR FURIOSO 🥊 (t = 0.05 a 0.166) -->
+      <g id="faceBoxer">
+        <animate attributeName="opacity" values="0; 1; 1; 0; 0"
+          keyTimes="0; 0.02; 0.16; 0.17; 1" dur="28s" repeatCount="indefinite"/>
+        <!-- Guantes de boxeo rojos a los costados -->
+        <circle cx="-42" cy="0" r="11" fill="#FF2A2A" stroke="#0D0D00" stroke-width="2.5"/>
+        <circle cx="42" cy="0" r="11" fill="#FF2A2A" stroke="#0D0D00" stroke-width="2.5"/>
+        <!-- Cejas y Ojos de Pelea -->
+        <path d="M-20 -14 L-6 -8 M20 -14 L6 -8" stroke="#0D0D00" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="-13" cy="-4" r="3.5" fill="#0D0D00"/>
+        <circle cx="13" cy="-4" r="3.5" fill="#0D0D00"/>
+        <!-- Boca Gruñona -->
+        <path d="M-9 12 Q0 6 9 12" stroke="#0D0D00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <!-- CARITA 2: NINJA CONCENTRADO 🥷 (t = 0.17 a 0.33) -->
+      <g id="faceNinja">
+        <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0"
+          keyTimes="0; 0.169; 0.175; 0.33; 0.335; 1" dur="28s" repeatCount="indefinite"/>
+        <!-- Cinta Ninja Roja con Nudo Flotante -->
+        <rect x="-40" y="-23" width="80" height="9" fill="#FF2A2A" stroke="#0D0D00" stroke-width="1.8"/>
+        <path d="M-38 -20 L-49 -27 L-44 -18 Z M-38 -18 L-47 -12 L-42 -16 Z" fill="#FF2A2A" stroke="#0D0D00" stroke-width="1.5"/>
+        <!-- Ojos Afilados Ninja -->
+        <circle cx="-14" cy="-3" r="3.5" fill="#0D0D00"/>
+        <circle cx="14" cy="-3" r="3.5" fill="#0D0D00"/>
+        <line x1="-8" y1="12" x2="8" y2="12" stroke="#0D0D00" stroke-width="3" stroke-linecap="round"/>
+      </g>
+
+      <!-- CARITA 3: ANIME TITÁN / SUPER SAIYAN ⚡ (t = 0.335 a 0.43) -->
+      <g id="faceAnimeSaiyan">
+        <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0"
+          keyTimes="0; 0.334; 0.34; 0.43; 0.435; 1" dur="28s" repeatCount="indefinite"/>
+        <!-- Rayos Eléctricos Neón en la Cabeza -->
+        <path d="M-18 -38 L-13 -26 L-7 -32 L-3 -22" stroke="#0D0D00" stroke-width="2.5" fill="none"/>
+        <path d="M18 -38 L13 -26 L7 -32 L3 -22" stroke="#0D0D00" stroke-width="2.5" fill="none"/>
+        <!-- Ojos Poligonales Anime con Destellos -->
+        <polygon points="-22,-10 -6,-3 -22,0" fill="#0D0D00"/>
+        <polygon points="22,-10 6,-3 22,0" fill="#0D0D00"/>
+        <circle cx="-12" cy="-5" r="1.5" fill="#FFFFFF"/>
+        <circle cx="12" cy="-5" r="1.5" fill="#FFFFFF"/>
+        <!-- Sonrisa Determinada -->
+        <path d="M-10 13 Q0 6 10 13" stroke="#0D0D00" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <!-- CARITA 4: CHISPA CURIOSA Y FELIZ ✨ (t = 0.435 a 0.495) -->
+      <g id="faceChispa">
+        <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0"
+          keyTimes="0; 0.434; 0.44; 0.493; 0.498; 1" dur="28s" repeatCount="indefinite"/>
+        <!-- Ojitos Curvos Felices estilo Chispa -->
+        <path d="M-18 -3 C-14 -11 -8 -11 -4 -3" stroke="#0D0D00" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M4 -3 C8 -11 14 -11 18 -3" stroke="#0D0D00" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <!-- Mejillas Rosadas -->
+        <ellipse cx="-18" cy="6" rx="5" ry="3" fill="#FF7777" opacity="0.6"/>
+        <ellipse cx="18" cy="6" rx="5" ry="3" fill="#FF7777" opacity="0.6"/>
+        <!-- Sonrisa Abierta Radiante -->
+        <path d="M-7 8 Q0 19 7 8 Z" fill="#0D0D00"/>
+        <!-- Destello sobre la cabeza -->
+        <g transform="translate(0, -32) scale(0.65)"><use href="#sparkleStar"/></g>
+      </g>
+
+      <!-- CARITA 5: CAMPEÓN DE ESQUINA CON CORONA Y GAFAS COOL 👑 🕶️ (t = 0.495 a 0.58 y 0.95 a 1.0) -->
+      <g id="faceChampion2048">
+        <animate attributeName="opacity" values="1; 0; 0; 0; 1; 1; 0; 0; 1"
+          keyTimes="0; 0.03; 0.493; 0.497; 0.50; 0.58; 0.585; 0.95; 1" dur="28s" repeatCount="indefinite"/>
+
+        <!-- CORONA DORADA DE CAMPEÓN 👑 -->
+        <path d="M-26 -40 L-16 -24 L0 -45 L16 -24 L26 -40 L20 -20 L-20 -20 Z" fill="#FAFF00" stroke="#0D0D00" stroke-width="2.5"/>
+        <circle cx="0" cy="-45" r="3.5" fill="#FF2A2A" stroke="#0D0D00" stroke-width="1.5"/>
+        <circle cx="-26" cy="-40" r="2.5" fill="#27C93F"/>
+        <circle cx="26" cy="-40" r="2.5" fill="#27C93F"/>
+
+        <!-- GAFAS DE SOL PIXELADAS COOL 🕶️ -->
+        <path d="M-28 -14 L-4 -14 L-7 2 L-25 2 Z" fill="#0D0D00"/>
+        <path d="M4 -14 L28 -14 L25 2 L7 2 Z" fill="#0D0D00"/>
+        <rect x="-6" y="-10" width="12" height="3" fill="#0D0D00"/>
+        <line x1="-24" y1="-10" x2="-16" y2="-1" stroke="#FFFFFF" stroke-width="2"/>
+        <line x1="8" y1="-10" x2="16" y2="-1" stroke="#FFFFFF" stroke-width="2"/>
+
+        <!-- Sonrisa Confiada de Campeón -->
+        <path d="M-10 14 Q0 23 13 12" stroke="#0D0D00" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <!-- CARITA 6: DIOS ESTELAR INFINITO 💫 🤩 (t = 0.58 a 0.95) -->
+      <g id="faceInfiniteGod">
+        <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0"
+          keyTimes="0; 0.584; 0.59; 0.945; 0.95; 1" dur="28s" repeatCount="indefinite"/>
+
+        <!-- Ojos de Estrellas Neón Brillantes -->
+        <g transform="translate(-14, -6) scale(0.65)"><use href="#sparkleStar"/></g>
+        <g transform="translate(14, -6) scale(0.65)"><use href="#sparkleStar"/></g>
+
+        <!-- Sonrisa Eufórica Abierta -->
+        <path d="M-12 10 Q0 26 12 10 Z" fill="#0D0D00"/>
+        <path d="M-5 16 Q0 20 5 16" fill="#FF5F56"/>
+
+        <!-- Mini Margaritas Orbitando la Cabeza -->
+        <g transform="translate(-28, -26) scale(0.55)"><use href="#daisy"/></g>
+        <g transform="translate(28, -26) scale(0.55)"><use href="#daisy"/></g>
+      </g>
+    </g>
+  </g>
+</svg>

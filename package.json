@@ -1,0 +1,22 @@
+{
+  "name": "brianperez22-profile",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Interactive GitHub Profile ecosystem powered by TypeScript, React (TSX) and dynamic SVG rendering",
+  "type": "module",
+  "scripts": {
+    "generate": "node --experimental-strip-types scripts/generate-2048.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
